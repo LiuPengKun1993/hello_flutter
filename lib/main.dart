@@ -1,35 +1,193 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // final wordPair = new WordPair.random();
-    // return new MaterialApp(
-    //   title: 'Welcome to Flutter',
-    //   home: new Scaffold(
-    //     appBar: new AppBar(
-    //       title: new Text('Welcome to Flutter'),
-    //     ),
-    //     body: new Center(
-    //       // child: new Text('Hello World1'),
-    //       // child: new Text(wordPair.asPascalCase),
-    //       child: new RandomWords(),
-    //     ),
-    //   ),
-    // );
-    return new MaterialApp(
-      title: '干杯',
-      // 更改应用程序的主题
-      theme: new ThemeData(
-        primaryColor: Colors.white,
-      ),
-      home: new RandomWords(),
-    );
-  }
-}
+// ListView 纵向
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'hello flutter',      
+//       home: Scaffold(
+//         appBar: new AppBar(title: new Text('hello flutter')),
+//         body: new ListView(
+//           children:<Widget>[
+//             new Image.network("https://cdn.pixabay.com/photo/2020/03/18/14/48/clouds-4944276_1280.jpg"),
+//             new Image.network("https://cdn.pixabay.com/photo/2017/08/29/12/03/accommodation-2693042_1280.jpg"),
+//             new Image.network("https://cdn.pixabay.com/photo/2017/12/21/12/12/cat-3031684__480.jpg"),
+//             new Image.network("https://cdn.pixabay.com/photo/2020/03/24/16/17/mask-4964590__480.png"),
+//             // new ListTile(
+//             //   leading:new Icon(Icons.access_alarm),
+//             //   title: new Text('access_alarm'),
+//             // ),
+//             // new ListTile(
+//             //   leading:new Icon(Icons.account_balance),
+//             //   title: new Text('account_balance'),
+//             // ),
+//             // new ListTile(
+//             //   leading:new Icon(Icons.add_to_photos),
+//             //   title: new Text('add_to_photos', style: new TextStyle(color:Colors.red)),
+//             // )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// // Container image
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     var container = Container(
+//                 child: new Image.network(
+//                   'https://avatars1.githubusercontent.com/u/20458422?s=460&u=62e8eb357234d41eb187749325d62bb764f20027&v=4',
+//                   // 是否重复显示
+//                   // repeat: ImageRepeat.repeatY,
+//                   color: Colors.blueAccent,
+//                   colorBlendMode:BlendMode.plus,
+//                 ),
+//                 width: 400.0,
+//                 height: 600.0,
+//                 color: Colors.red,
+//               );
+//         return MaterialApp(
+//           title: 'Container Widget',
+//           home: Scaffold(
+//             body: Center(
+//               child: container,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// Container Widget 2
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     var textStyle = TextStyle(
+//                 fontSize:25.0,
+//                 color: Color.fromARGB(255, 50, 50, 50),
+//                 decoration: TextDecoration.underline,
+//                 decorationStyle: TextDecorationStyle.dashed,
+//                 decorationColor: Color.fromARGB(255, 100, 100, 100),
+//               );
+//     var container = Container(
+//                 child: new Text('吾乃生于乱世中，自当斩破尘埃。受尽苦难而不厌，此乃阿修罗之道。', style: textStyle,),
+//                 alignment: Alignment.topLeft,
+//                 width: 500.0,
+//                 height: 300.0,
+//                 // 内边距
+//                 padding: const EdgeInsets.fromLTRB(10.0, 30.0, 0.0, 0.0),
+//                 // 外边距
+//                 margin: const EdgeInsets.all(10.0),
+//                 decoration: new BoxDecoration(
+//                   // 线性渐变
+//                   gradient:const LinearGradient(
+//                     colors:[Colors.blueAccent, Colors.purpleAccent, Colors.blueGrey]
+//                   ),
+//                   // 边框
+//                   border: Border.all(width:5.0, color:Colors.blue[200]),
+//                 ),
+//               );
+//         return MaterialApp(
+//           title: 'Container Widget',
+//           home: Scaffold(
+//             body: Center(
+//               child: container,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// Container Widget 1
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//         var textStyle = TextStyle(
+//               fontSize:25.0,
+//               color: Color.fromARGB(255, 50, 50, 50),
+//               decoration: TextDecoration.underline,
+//               decorationStyle: TextDecorationStyle.dashed,
+//               decorationColor: Color.fromARGB(255, 100, 100, 100),
+//             );
+//     return MaterialApp(
+//       title: 'Container Widget',
+//       home: Scaffold(
+//         body: Center(
+//           child: Container(
+//             child: new Text('吾乃生于乱世中，自当斩破尘埃。受尽苦难而不厌，此乃阿修罗之道。', style: textStyle,),
+//             alignment: Alignment.centerLeft,
+//             width: 500.0,
+//             height: 300.0,
+//             color: Colors.lightBlueAccent,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// text Widget
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     var textStyle = TextStyle(
+//               fontSize:25.0,
+//               color: Color.fromARGB(255, 155, 155, 100),
+//               decoration: TextDecoration.underline,
+//               decorationStyle: TextDecorationStyle.wavy,
+//               decorationColor: Color.fromARGB(255, 100, 100, 100),
+//               backgroundColor: Color.fromARGB(255, 150, 250, 250),
+//             );
+//     return MaterialApp(
+//       title: 'text Widget',
+//       home: Scaffold(
+//         body: Center(
+//           child: Text(
+//             '吾乃生于乱世中，自当斩破尘埃。受尽苦难而不厌，此乃阿修罗之道。',
+//             textAlign: TextAlign.left,
+//             maxLines: 1,
+//             overflow: TextOverflow.ellipsis,
+//             style: textStyle
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// 列表练习
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     // final wordPair = new WordPair.random();
+//     // return new MaterialApp(
+//     //   title: 'Welcome to Flutter',
+//     //   home: new Scaffold(
+//     //     appBar: new AppBar(
+//     //       title: new Text('Welcome to Flutter'),
+//     //     ),
+//     //     body: new Center(
+//     //       // child: new Text('Hello World1'),
+//     //       // child: new Text(wordPair.asPascalCase),
+//     //       child: new RandomWords(),
+//     //     ),
+//     //   ),
+//     // );
+//     return new MaterialApp(
+//       title: '干杯',
+//       // 更改应用程序的主题
+//       theme: new ThemeData(
+//         primaryColor: Colors.white,
+//       ),
+//       home: new RandomWords(),
+//     );
+//   }
+// }
 
 class RandomWords extends StatefulWidget {
   @override
