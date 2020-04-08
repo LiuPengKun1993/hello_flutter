@@ -3,6 +3,162 @@ import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
 
+// 横向布局 Row
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '横向布局',
+      home: Scaffold(
+        appBar: new AppBar(title: new Text('hello 横向布局')),
+        body: new Row(
+          children:<Widget>[
+            new RaisedButton(
+              onPressed: (){},
+              color: Colors.redAccent,
+              child: new Text('red button'),
+            ),
+            // 带Expanded是灵活的布局，不灵活的不带
+            Expanded(
+              child:new RaisedButton(
+                onPressed: (){},
+                color: Colors.blueAccent,
+                child: new Text('blue button'),
+              ),
+            ),
+            new RaisedButton(
+              onPressed: (){},
+              color: Colors.orangeAccent,
+              child: new Text('orange button'),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// 网格控件：类似于 collectionView
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'hello flutter',
+//       home: Scaffold(
+//         appBar: new AppBar(title: new Text('hello GridView')),
+//         body: GridView(
+//           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 3,
+//             crossAxisSpacing: 10.0,
+//             mainAxisSpacing: 2.0,
+//             childAspectRatio: 0.7,
+//           ),
+//           children: <Widget>[
+//             new Image.network('https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2617297214,2858371489&fm=58&app=83&f=JPEG?w=300&h=400&s=6CC1A946BEC900DE112908B30300D090'),
+//             new Image.network('https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3465500627,4087711608&fm=58&app=83&f=JPEG?w=400&h=533&s=1A4FA9445F23AE5F5E6766010300E0DE'),
+//             new Image.network('https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2975901083,2518363767&fm=58'),
+//             new Image.network('https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4191851377,1755301182&fm=58&s=A0026CB50C134BFF189DDD430300F0E1'),
+//             new Image.network('https://dss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3717282104,1079711651&fm=58&s=6A292DC0420F22FA2A73CB08030040CD'),
+//             new Image.network('https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3527165871,1016449403&fm=58&s=787B20C402B38BC456651C8D0300E088'),
+//           ],
+//         ),
+
+//         // 官方不太推荐这样写了，很多老项目是这样写的
+//         // body: GridView.count(
+//         //   // 每行几个
+//         //   crossAxisCount: 3,
+//         //   // 每个item之间的间隔
+//         //   crossAxisSpacing: 10.0,
+//         //   // 外部间隔
+//         //   padding: const EdgeInsets.all(10.0),
+//         //   children: <Widget>[
+//         //     const Text('11111'),
+//         //     const Text('22222'),
+//         //     const Text('33333'),
+//         //     const Text('44444'),
+//         //     const Text('55555'),
+//         //     const Text('66666'),
+//         //   ],
+//         // ),
+//       ),
+//     );
+//   }
+// }
+
+// 动态列表
+// void main() => runApp(MyApp(
+//   items:new List<String>.generate(1000, (i)=>"item $i")
+// ));
+
+// class MyApp extends StatelessWidget {
+//   final List<String> items;
+//   MyApp({Key key, @required this.items}):super(key:key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'hello flutter',
+//       home: Scaffold(
+//         appBar: new AppBar(title: new Text('hello 动态列表')),
+//         body:new ListView.builder(
+//           itemCount: items.length,
+//           itemBuilder: (context, index) {
+//             return new ListTile(
+//               title: new Text('${items[index]}'),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ListView 水平
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'hello flutter',
+//       home: Scaffold(
+//         appBar: new AppBar(title: new Text('hello ListView 水平')),
+//         body: Center(
+//           child: Container(
+//             height: 200.0,
+//             child:MyListView()
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class MyListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children:<Widget>[
+        new Container(
+          width:180.0,
+          color:Colors.redAccent,
+        ),
+        new Container(
+          width:180.0,
+          color:Colors.blueAccent,
+        ),
+        new Container(
+          width:180.0,
+          color:Colors.purpleAccent,
+        ),
+        new Container(
+          width:180.0,
+          color:Colors.orangeAccent,
+        ),
+      ],
+    );
+  }
+}
+
 // ListView 纵向
 // class MyApp extends StatelessWidget {
 //   @override
@@ -10,7 +166,7 @@ void main() => runApp(MyApp());
 //     return MaterialApp(
 //       title: 'hello flutter',      
 //       home: Scaffold(
-//         appBar: new AppBar(title: new Text('hello flutter')),
+//         appBar: new AppBar(title: new Text('hello ListView 纵向')),
 //         body: new ListView(
 //           children:<Widget>[
 //             new Image.network("https://cdn.pixabay.com/photo/2020/03/18/14/48/clouds-4944276_1280.jpg"),
@@ -53,7 +209,7 @@ void main() => runApp(MyApp());
 //                 color: Colors.red,
 //               );
 //         return MaterialApp(
-//           title: 'Container Widget',
+//           title: 'Container image',
 //           home: Scaffold(
 //             body: Center(
 //               child: container,
